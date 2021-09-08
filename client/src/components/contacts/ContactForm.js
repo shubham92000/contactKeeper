@@ -8,6 +8,13 @@ const ContactForm = () => {
 
   const { addContact , current , clearCurrent ,updateContact } = contactContext;
 
+  const [contact , setContact] = useState({
+    name : "",
+    email : "",
+    phone : "",
+    type : "personal"
+  });
+
   useEffect(() => {
     if(current != null){
       setContact(current);
@@ -17,20 +24,14 @@ const ContactForm = () => {
         email : "",
         phone : "",
         type : "personal"
+      
       });
     }
   } , [contactContext , current]);   //[] -> dependencies
 
-  const [contact , setContact] = useState({
-    name : "",
-    email : "",
-    phone : "",
-    type : "personal"
-  });
-
   const { name , email , phone , type } = contact;
 
-  const onChange = e => setContact({...contact , [e.target.name] : e.target.value})
+  const onChange = e => {setContact({...contact , [e.target.name] : e.target.value})}
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -61,6 +62,7 @@ const ContactForm = () => {
       <h5>Contact Type : </h5>
       <input type="radio" name="type" value="personal" checked={type === 'personal'} onChange={onChange} />Personal{' '}
       <input type="radio" name="type" value="professional" checked={type === 'professional'} onChange = {onChange} />Professional{' '}
+
       <input type="submit" value={current ? 'Update Contact' : 'Add Contact'} className="btn btn-primary btn-block" onChange = {onChange} />
       {current && <div>
         <button className="btn btn-light btn-block" onClick = {clearAll}>Clear</button>  
