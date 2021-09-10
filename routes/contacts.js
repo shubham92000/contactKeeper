@@ -11,6 +11,13 @@ const Contact = require('../models/Contact');
 // @access    Private
 router.get('/' , auth , async (req , res) => {  
   try {
+
+    // console.log('START');
+
+    console.log(req);
+
+    // console.log('END');
+
     const contacts = await Contact.find({user : req.user.id }).sort({date : -1});
     res.json(contacts);
   } catch (err) {
@@ -19,8 +26,8 @@ router.get('/' , auth , async (req , res) => {
   }
 });
 
-// @route     GET api/contacts
-// @desc      Get all user's contacts
+// @route     POST api/contacts
+// @desc      add user's contact
 // @access    Private
 router.post('/' , [auth , [
   check('name' , 'Name is required').not().isEmpty()

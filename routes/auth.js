@@ -44,12 +44,24 @@ router.post('/' , [
       return res.status(400).json({msg : 'invalid credentials'});
     }
 
+    // console.log('USER_START');
+
+    // console.log(user);
+
+    // console.log('USER_END');
+
     const payload = {
       user : {
         id : user.id
       }
     }
     
+    // console.log('PAYLOAD_START');
+
+    // console.log(payload);
+
+    // console.log('PAYLOAD_END');
+
     jwt.sign(payload , config.get('jwtSecret') , {
       expiresIn:360000
     } , (err,token) => {
