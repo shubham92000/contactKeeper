@@ -12,7 +12,7 @@ const Login = (props) => {
   useEffect(() => {
 
     if(isAuthenticated){
-      props.history.push('/');
+      props.history.push('/');    //redirect to home
     }
 
     if(error === 'invalid credentials'){

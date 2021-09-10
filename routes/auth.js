@@ -45,9 +45,7 @@ router.post('/' , [
     }
 
     // console.log('USER_START');
-
     // console.log(user);
-
     // console.log('USER_END');
 
     const payload = {
@@ -57,9 +55,7 @@ router.post('/' , [
     }
     
     // console.log('PAYLOAD_START');
-
     // console.log(payload);
-
     // console.log('PAYLOAD_END');
 
     jwt.sign(payload , config.get('jwtSecret') , {

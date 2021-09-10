@@ -13,9 +13,7 @@ router.get('/' , auth , async (req , res) => {
   try {
 
     // console.log('START');
-
-    console.log(req);
-
+    // console.log(req);
     // console.log('END');
 
     const contacts = await Contact.find({user : req.user.id }).sort({date : -1});
