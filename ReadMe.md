@@ -1,4 +1,4 @@
-# Project Title
+# Title
 
 Full stack web app for storing contacts of users.Users can register and can create , update , delete contacts their personal and professional contacts
 
@@ -28,7 +28,7 @@ Full stack web app for storing contacts of users.Users can register and can crea
 
     $ npm run dev
 
-## Simple build for production
+## Build for production
 
     $ npm run build
 
